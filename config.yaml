@@ -1,0 +1,23 @@
+exchange: binance
+symbol: DOG/USDT                 # CCXT symbol format; change to AVAX/USDT, SOL/USDT etc.
+timeframe: 1m                    # candle timeframe for polling
+entry:
+  drop_pct: 3.5                  # price drop threshold (%) measured over lookback_minutes
+  lookback_minutes: 5
+  rsi_period: 5
+  rsi_threshold: 20
+  bb_period: 20
+  bb_std: 2
+  ob_imbalance_threshold: 0.1    # orderbook imbalance threshold (0..1)
+exit:
+  take_profit_pct: 1.2           # percent retrace for taking profit (1.0-1.5 suggested)
+  stop_loss_pct: -2.0            # negative percent for stop loss
+position:
+  size_usd: 10                   # USD amount per trade (adjust to account size)
+  max_concurrent_positions: 1
+mode:
+  paper: true                    # paper trading if true; otherwise real trades (use with caution)
+polling:
+  candle_seconds: 5              # how often to poll exchange for updates
+logging:
+  level: INFO
